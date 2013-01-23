@@ -221,8 +221,8 @@ For this entire exercise, <span style="font-weight:bold">we do not change this c
 
 Start with data from a main effects model (ORs of 1.2, 1.7, 2.5)
 
-<img src="figure/Fig1a.png" style="width:400px; float: left; margin-bottom: 15px; margin-right:3px">
-<img src="figure/Fig1b.png" style="width:400px; float: left; margin-bottom: 15px; margin-right:3px">
+<img src="figure/Fig1a.png" style="height:380px; float: left; margin-bottom: 15px; margin-right:3px">
+<img src="figure/Fig1b.png" style="height:380px; float: left; margin-bottom: 15px; margin-right:3px">
 <p style="clear:both;"></p>
 
 LR1 = main effects logistic regression<br>
