@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Probability machines</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Probability machines">
+  <meta name="author" content="Abhijit Dasgupta, PhD">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+    <link rel="stylesheet" href = "assets/css/ribbons.css">
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+    <!-- END LOGO SLIDE -->
+    
+
+    <!-- TITLE SLIDE -->
+    <!-- Should I move this to a Local Layout File? -->
+    <slide class="title-slide segue nobackground">
+      <hgroup class="auto-fadein">
+        <h1>Probability machines</h1>
+        <h2>Prediction in a post-parametric world</h2>
+        <p>Abhijit Dasgupta, PhD<br/></p>
+      </hgroup>
+          </slide>
+
+    <!-- SLIDES -->
+      <slide class="" id="slide-1" style="background: no-repeat;
+background-size: cover;
+">
+<hgroup>
+<h2>A world in binary</h2>
+</hgroup>
+<article>
+<p>We often simplify our world, avoiding the grey</p>
+
+<ul>
+<li>No - Yes</li>
+<li>Sick - Healthy</li>
+<li>Normal tissue - Diseased tissue</li>
+<li>Bad - Good</li>
+</ul>
+
+<p>and want to associate this binary view of an outcome with other predictors we might be measuring</p>
+
+<p>In other words, we&#39;re interested in the relationship between a binary outcome <em>Y</em> and a set of predictors <em>X</em>, denoting this by $Y|X$</p>
+
+
+</article>
+<!-- Presenter notes -->
+<aside class="note">
+<section>
+<p>Focus on binary outcomes</p>
+
+</section>
+</aside>
+</slide>
+
+      <slide class="" id="slide-2" style="background: no-repeat;
+background-size: cover;
+">
+<hgroup>
+<h2>A world in binary</h2>
+</hgroup>
+<article>
+<p>We have been made to believe that </p>
+
+<p style="font-size:40px; text-align:center">Binary outcomes = classification</p>
+
+<p>and so find many algorithms for binary outcomes restricted to the <em>classification problem</em></p>
+
+</article>
+<!-- Presenter notes -->
+</slide>
+
+      <slide class="" id="slide-3" style="background: no-repeat;
+background-size: cover;
+">
+<hgroup>
+<h2>A world in binary</h2>
+</hgroup>
+<article>
+<p>We have been made to believe that </p>
+
+<p style="font-size:40px; text-align:center">Binary outcomes = classification</p>
+
+<p>and so find many algorithms for binary outcomes restricted to the <em>classification problem</em></p>
+
+<p>However, the fact of the matter is that, as long as we believe
+E(Y|X) = P(Y=1|X) = p is continuous, we can do</p>
+
+<p style="font-size:40px;color:red;text-align:center"> regression </p>
+
+</article>
+<!-- Presenter notes -->
+</slide>
+
+      <slide class="segue dark" id="slide-4" style="background: no-repeat;
+background-size: cover;
+">
+<hgroup>
+<h2>Binary regression</h2>
+</hgroup>
+<article>
+
+</article>
+<!-- Presenter notes -->
+</slide>
+
+      <slide class="" id="slide-5" style="background: no-repeat;
+background-size: cover;
+">
+<hgroup>
+<h2>Binary regression</h2>
+</hgroup>
+<article>
+<p>We&#39;re already familiar with binary regression in one form</p>
+
+<p style="font-size:30px;text-align:center;color:red">logistic regression</p>
+
+</article>
+<!-- Presenter notes -->
+</slide>
+
+      <slide class="" id="slide-6" style="background: no-repeat;
+background-size: cover;
+">
+<hgroup>
+<h2>Binary regression</h2>
+</hgroup>
+<article>
+<p>We&#39;re already familiar with binary regression in one form</p>
+
+<p style="font-size:30px;text-align:center;color:red">logistic regression</p>
+
+<p>In fact, if you recall, we write
+\[ \log(\frac{p}{1-p}) = \beta_0+\beta_1X_1+\beta_2X_2 \]</p>
+
+</article>
+<!-- Presenter notes -->
+</slide>
+
+      <slide class="" id="slide-7" style="background: no-repeat;
+background-size: cover;
+">
+<hgroup>
+<h2>Binary regression</h2>
+</hgroup>
+<article>
+<p>We&#39;re already familiar with binary regression in one form</p>
+
+<p style="font-size:30px;text-align:center;color:red">logistic regression</p>
+
+<p>In fact, if you recall, we write
+\[ \log(\frac{p}{1-p}) = \beta_0+\beta_1X_1+\beta_2X_2 \]</p>
+
+<p>We then promptly dichotomize our predictions into 0-1 and look at misclassification rates</p>
+
+</article>
+<!-- Presenter notes -->
+</slide>
+
+      <slide class="" id="slide-8" style="background: no-repeat;
+background-size: cover;
+">
+<hgroup>
+<h2>Binary regression</h2>
+</hgroup>
+<article>
+<p>We&#39;re already familiar with binary regression in one form</p>
+
+<p style="font-size:30px;text-align:center;color:red">logistic regression</p>
+
+<p>In fact, if you recall, we write
+\[ \log(\frac{p}{1-p}) = \beta_0+\beta_1X_1+\beta_2X_2 \]</p>
+
+<p>We then promptly dichotomize our predictions into 0-1 and look at misclassification rates</p>
+
+<p style="font-size:100px;text-align:center">WHY!!!</p>
+
+</article>
+<!-- Presenter notes -->
+</slide>
+
+      <slide class="segue dark" id="slide-9" style="background: no-repeat;
+background-size: cover;
+">
+<hgroup>
+<h2>Probability machines</h2>
+</hgroup>
+<article>
+
+</article>
+<!-- Presenter notes -->
+</slide>
+
+      <slide class="" id="slide-10" style="background: no-repeat;
+background-size: cover;
+">
+<hgroup>
+<h2>Probability machines</h2>
+</hgroup>
+<article>
+<p>Probability machines are learning machines for binary outcomes which are </p>
+
+<ul>
+<li>non-parametric</li>
+<li>consistent</li>
+</ul>
+
+<p><img src="figure/MIM.png" alt=""></p>
+
+</article>
+<!-- Presenter notes -->
+</slide>
+
+      <slide class="" id="slide-11" style="background: no-repeat;
+background-size: cover;
+">
+<hgroup>
+<h2>Probability machines</h2>
+</hgroup>
+<article>
+<p>Probability machines are learning machines for binary outcomes which are </p>
+
+<ul>
+<li>non-parametric</li>
+<li>consistent</li>
+</ul>
+
+<p>Several candiates exist for probability machines</p>
+
+<ul>
+<li>Random Forests regression</li>
+<li>k-nearest neighbors regression</li>
+<li>Some support vector machines</li>
+<li>Potentially many others</li>
+</ul>
+
+</article>
+<!-- Presenter notes -->
+</slide>
+
+      <slide class="" id="slide-12" style="background: no-repeat;
+background-size: cover;
+">
+<hgroup>
+<h2>Probability machines</h2>
+</hgroup>
+<article>
+<p>Probability machines are learning machines for binary outcomes which are </p>
+
+<ul>
+<li>non-parametric</li>
+<li>consistent</li>
+</ul>
+
+<p>Several candiates exist for probability machines</p>
+
+<ul>
+<li><span style="color:blue"><strong>Random Forests regression (RFPM)</strong></span></li>
+<li>k-nearest neighbors regression</li>
+<li>Some support vector machines</li>
+<li>Potentially many others</li>
+</ul>
+
+<p>Biau and colleagues proved several consistency results for both RF and kNN </p>
+
+</article>
+<!-- Presenter notes -->
+</slide>
+
+      <slide class="" id="slide-13" style="background: no-repeat;
+background-size: cover;
+">
+<hgroup>
+<h2>Probability machines</h2>
+</hgroup>
+<article>
+<p>A PM has several advantages over classical regression methods</p>
+
+<ul class = "build">
+<li>There is no need to assume a particular data generating model</li>
+<li><p>There is no need to specify a functional form for the relationship between the outcome and predictors</p>
+
+<ul>
+<li>Interactions</li>
+<li>Transformations of variables</li>
+<li>Link functions (logit, probit, tobit, ...)</li>
+</ul></li>
+<li><p>There is no restriction on dimensionality of the predictors</p></li>
+<li><p>Algorithms are often parallelizable </p></li>
+</ul>
+
+</article>
+<!-- Presenter notes -->
+</slide>
+
+      <slide class="" id="slide-14" style="background: no-repeat;
+background-size: cover;
+">
+<hgroup>
+<h2>Probability machines</h2>
+</hgroup>
+<article>
+<p>Let&#39;s compare probability machines to logistic regression, the industry standard</p>
+
+<table><thead>
+<tr>
+<th>Logistic regression</th>
+<th>Probability machines</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Assumes data from logistic regression</td>
+<td>No such assumption</td>
+</tr>
+<tr>
+<td>Explicit functional form</td>
+<td>No such specification</td>
+</tr>
+<tr>
+<td>Need to specify interactions</td>
+<td>Interactions implicit</td>
+</tr>
+<tr>
+<td>Predictors less than observations</td>
+<td>Scalable to higher dimensions</td>
+</tr>
+</tbody></table>
+
+<p><br>
+Some will argue that logistic regression is important to understand the 
+<span style="color:black;font-weight:bold;text-decoration:underline">effect</span> of predictors. </p>
+
+<p>We&#39;ll address this in the next hour. For now, let&#39;s look at prediction</p>
+
+<div style='float:left;width:48%;' class='centered'>
+  
+</div>
+<div style='float:right;width:48%;'>
+  
+</div>
+</article>
+<!-- Presenter notes -->
+</slide>
+
+      <slide class="segue dark" id="slide-15" style="background: no-repeat;
+background-size: cover;
+">
+<hgroup>
+<h2>Predictive ability</h2>
+</hgroup>
+<article>
+
+</article>
+<!-- Presenter notes -->
+</slide>
+
+      <slide class="" id="slide-16" style="background: no-repeat;
+background-size: cover;
+">
+<hgroup>
+<h2>Simulations</h2>
+</hgroup>
+<article>
+<p>We generate data from a <em>logistic regression</em> model with </p>
+
+<ul>
+<li>10 independent binary features</li>
+<li>3 features associated with outcome to various degrees</li>
+<li>7 features not associated with outcome (to mimic sparseness)</li>
+</ul>
+
+</article>
+<!-- Presenter notes -->
+</slide>
+
+      <slide class="" id="slide-17" style="background: no-repeat;
+background-size: cover;
+">
+<hgroup>
+<h2>Simulations</h2>
+</hgroup>
+<article>
+<p>We fit three models to the generated data</p>
+
+<ul>
+<li><p>Main effects logistic regression <br>
+<code>glm(y~x1+x2+x3+..., family=binomial)</code></p></li>
+<li><p>Main effects + two-way interactions logistic regression <br>
+<code>glm(y~(x1+x2+x3+...)^2, family=binomial)</code></p></li>
+<li><p>Random forest regression <br>
+<code>randomForest(y~x1+x2+x3+...)</code></p></li>
+</ul>
+
+<p>For this entire exercise, <span style="font-weight:bold">we do not change this code</span></p>
+
+</article>
+<!-- Presenter notes -->
+</slide>
+
+      <slide class="" id="slide-18" style="background: no-repeat;
+background-size: cover;
+">
+<hgroup>
+<h2>Simulations</h2>
+</hgroup>
+<article>
+<p>Start with data from a main effects model (ORs of 1.2, 1.7, 2.5)</p>
+
+<p><img src="figure/Fig1a.png" style="width:400px; float: left; margin-bottom: 15px; margin-right:3px">
+<img src="figure/Fig1b.png" style="width:400px; float: left; margin-bottom: 15px; margin-right:3px"></p>
+
+<p style="clear:both;"></p>
+
+<p>LR1 = main effects logistic regression<br>
+LR2 = main effects+interaction logistic regression<br>
+RF = random forest probability machine</p>
+
+</article>
+<!-- Presenter notes -->
+</slide>
+
+      <slide class="" id="slide-19" style="background: no-repeat;
+background-size: cover;
+">
+<hgroup>
+<h2>Simulations</h2>
+</hgroup>
+<article>
+<p>Now add interactions (X1 x X2 = 2, X2 x X3 = 5)</p>
+
+<p><img src="figure/Fig3a.png" style="width:380px; float:left, margin-bottom:15px; margin-right:3px">
+<img src="figure/Fig3b.png" style="width:380px; float:left, margin-bottom:15px; margin-right:3px"></p>
+
+<p style="clear:both;"></p>
+
+<p>LR1 = main effects logistic regression<br>
+LR2 = main effects+interaction logistic regression<br>
+RF = random forest probability machine</p>
+
+</article>
+<!-- Presenter notes -->
+</slide>
+
+      <slide class="" id="slide-20" style="background: no-repeat;
+background-size: cover;
+">
+<hgroup>
+<h2>Simulations</h2>
+</hgroup>
+<article>
+<p>Now add interactions (X1 x X2 = 2, X2 x X3 = 5)</p>
+
+<p><img src="figure/Fig3a1.png" style="width:380px; float:left, margin-bottom:15px; margin-right:3px">
+<img src="figure/Fig3b.png" style="width:380px; float:left, margin-bottom:15px; margin-right:3px"></p>
+
+<p style="clear:both;"></p>
+
+<p>LR1 = main effects logistic regression<br>
+LR2 = main effects+interaction logistic regression<br>
+RF = random forest probability machine</p>
+
+</article>
+<!-- Presenter notes -->
+</slide>
+
+      <slide class="" id="slide-21" style="background: no-repeat;
+background-size: cover;
+">
+<hgroup>
+<h2>Simulation</h2>
+</hgroup>
+<article>
+<p>Now let&#39;s look at arbitrary probabilities for each (X1,X2,X3) combination</p>
+
+<p><img src="figure/Fig4a.png" style="width:450px; float:left, margin-bottom:15px; margin-right:3px">
+<img src="figure/Fig4b.png" style="width:450px; float:left, margin-bottom:15px; margin-right:3px"></p>
+
+<p style="clear:both;"></p>
+
+</article>
+<!-- Presenter notes -->
+</slide>
+
+      <slide class="" id="slide-22" style="background: no-repeat;
+background-size: cover;
+">
+<hgroup>
+<h2>Simulation</h2>
+</hgroup>
+<article>
+<p>Now let&#39;s look at arbitrary probabilities for each (X1,X2,X3) combination</p>
+
+<p><img src="figure/Fig4a1.png" style="width:450px; float:left, margin-bottom:15px; margin-right:3px">
+<img src="figure/Fig4b.png" style="width:450px; float:left, margin-bottom:15px; margin-right:3px"></p>
+
+<p style="clear:both;"></p>
+
+</article>
+<!-- Presenter notes -->
+</slide>
+
+      <slide class="segue dark" id="slide-23" style="background: no-repeat;
+background-size: cover;
+">
+<hgroup>
+<h2>The bottom line</h2>
+</hgroup>
+<article>
+
+</article>
+<!-- Presenter notes -->
+</slide>
+
+      <slide class="" id="slide-24" style="background: no-repeat;
+background-size: cover;
+">
+<hgroup>
+<h2>Conclusions</h2>
+</hgroup>
+<article>
+<ol class = "build">
+<li>If the logistic model is mis-specified, it does poorly. <strong>RFPM doesn&#39;t</strong></li>
+<li>We don&#39;t have to change the code for RFPM to do well for different generating models</li>
+<li>RFPM captures different aspects of the data auto-magically. With logistic regression, if you&#39;re not correct in your specification, you can screw up.</li>
+<li>Main effects data is rather rare, but we fit main effects logistic regression as the default. Fit RFPM instead, CYA, and (preview) see what kinds of models might be reasonable </li>
+</ol>
+
+</article>
+<!-- Presenter notes -->
+</slide>
+
+      <slide class="" id="slide-25" style="background:url(figure/img_6940.jpg) no-repeat;
+background-size: cover;
+">
+<hgroup>
+
+</hgroup>
+<article>
+<h3 style="color:yellow">Can we NOT use logistic regression to get effect sizes?</h3>
+
+</article>
+<!-- Presenter notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+
+  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+<!-- Grab CDN jQuery, fall back to local if offline -->
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+<script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery-1.7.min.js"><\/script>')</script>
+<!-- Load Javascripts for Widgets -->
+<!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script> -->
+<script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<!-- LOAD HIGHLIGHTER JS FILES -->
+<script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- DONE LOADING HIGHLIGHTER JS FILES -->
+</html>
